@@ -1,3 +1,7 @@
-.project
-*.classpath
-.settings
+.*
+*.class
+*.jar
+*.war
+*.iml
+target
+!.gitignore
