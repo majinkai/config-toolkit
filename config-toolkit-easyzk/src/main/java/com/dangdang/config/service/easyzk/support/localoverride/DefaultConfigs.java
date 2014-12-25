@@ -13,42 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dangdang.config.service.observer;
-
-import java.util.List;
-
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
+package com.dangdang.config.service.easyzk.support.localoverride;
 
 /**
- * 主题通用实现
- * 
  * @author <a href="mailto:wangyuxuan@dangdang.com">Yuxuan Wang</a>
  *
  */
-public abstract class AbstractSubject implements ISubject {
+public final class DefaultConfigs {
 
 	/**
-	 * 观察者列表
+	 * 本地缓存文件变量名
 	 */
-	private final List<IObserver> watchers = Lists.newArrayList();
+	public static final String LOCAL_OVERRIDE_FILE_EVN_KEY = "local-override.file";
 
-	@Override
-	public void register(final IObserver watcher) {
-		watchers.add(Preconditions.checkNotNull(watcher));
-	}
-
-	@Override
-	public void notify(final String key, final String value) {
-		for (final IObserver watcher : watchers) {
-			new Thread(new Runnable() {
-				
-				@Override
-				public void run() {
-					watcher.notifiy(key, value);
-				}
-			}).run();
-		}
-	}
+	/**
+	 * 默认本地缓存文件
+	 */
+	public static final String DEFAULT_LOCAL_OVERRIDE_FILE = "local-override.xml";
 
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dangdang.config.service.easyzk.demo.normal;
+package com.dangdang.config.service.easyzk.demo.override;
 
 import com.dangdang.config.service.easyzk.ConfigFactory;
 import com.dangdang.config.service.easyzk.ConfigNode;
@@ -24,10 +24,10 @@ import com.google.common.base.Preconditions;
  * @author <a href="mailto:wangyuxuan@dangdang.com">Yuxuan Wang</a>
  *
  */
-public class WithoutSpring {
+public class LocalOverrideTest {
 
 	public static void main(String[] args) {
-		ConfigFactory configFactory = new ConfigFactory("127.0.0.1", "/projectx/modulex");
+		ConfigFactory configFactory = new ConfigFactory("zoo.host1:8181", "/projectx/modulex");
 
 		ConfigNode propertyGroup1 = configFactory.getConfigNode("property-group1");
 		System.out.println(propertyGroup1);
@@ -40,7 +40,7 @@ public class WithoutSpring {
 			}
 		});
 
-		Preconditions.checkState("Welcome".equals(propertyGroup1.getProperty("string_property_key")));
+		Preconditions.checkState("Welcome here.".equals(propertyGroup1.getProperty("string_property_key")));
 		Preconditions.checkState(1123 == Integer.parseInt(propertyGroup1.getProperty("int_property_key")));
 	}
 

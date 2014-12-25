@@ -3,12 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>config-toolkit-easyzk</artifactId>
-	<version>1.0.2-RELEASE</version>
+	<version>1.2.0-RELEASE</version>
 	<packaging>jar</packaging>
 	<parent>
 		<groupId>com.dangdang</groupId>
 		<artifactId>config-toolkit-parent</artifactId>
-		<version>1.0.1-RELEASE</version>
+		<relativePath>../config-toolkit-parent</relativePath>
+		<version>1.2.0-RELEASE</version>
 	</parent>
 
 	<name>config-toolkit-easyzk</name>
@@ -58,10 +59,10 @@
 			<artifactId>guava</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -72,5 +73,9 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
 	</dependencies>
 </project>
